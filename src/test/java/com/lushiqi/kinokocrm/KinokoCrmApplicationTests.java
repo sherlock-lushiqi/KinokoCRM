@@ -1,14 +1,11 @@
 package com.lushiqi.kinokocrm;
 
 import com.lushiqi.kinokocrm.entity.data.Accounts;
-import com.lushiqi.kinokocrm.entity.data.Customers;
 import com.lushiqi.kinokocrm.entity.data.Employees;
-import com.lushiqi.kinokocrm.entity.repo.AccountRepository;
-import com.lushiqi.kinokocrm.entity.repo.CustomersRepository;
+import com.lushiqi.kinokocrm.entity.repo.AccountsRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.test.annotation.Commit;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
@@ -17,7 +14,7 @@ import javax.transaction.Transactional;
 class KinokoCrmApplicationTests {
 
     @Resource
-    private AccountRepository repository;
+    private AccountsRepository repository;
 
     @Transactional    //懒加载属性需要在事务环境下获取，因为repository方法调用完后session回立即关闭，此时会报错could not initialize proxy  - no Session
     @Test
