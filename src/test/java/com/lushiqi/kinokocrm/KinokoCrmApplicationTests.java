@@ -12,4 +12,6 @@ import javax.transaction.Transactional;
 
 @SpringBootTest
 class KinokoCrmApplicationTests {
+
 }
+

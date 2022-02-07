@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" th:href="@{css/style.css}">
     <title>Kinoko admin</title>
   </head>
   <body>
@@ -27,11 +27,11 @@
               <span>Customers</span></a>
           </li>
           <li>
-            <a href="products" class="active"><span class="las la-clipboard-list"></span>
+            <a href="products"><span class="las la-clipboard-list"></span>
               <span>Products</span></a>
           </li>
           <li>
-            <a href="sales"><span class="las la-receipt"></span>
+            <a href="sales" class="active"><span class="las la-receipt"></span>
               <span>Sales</span></a>
           </li>
           <li>
@@ -48,7 +48,7 @@
           <label for="nav-toggle">
             <span class="las la-bars"></span>
 
-            Products
+            Orders
           </label>
         </h2>
 
@@ -58,7 +58,7 @@
         </div>
 
         <div class="user-wrapper">
-          <img src="/static/img/elliot.jpg" width="40px" height="30px" alt="">
+          <img src="img/elliot.jpg" width="40px" height="30px" alt="">
           <div>
             <h4>Elliot Doe</h4>
             <small>Super admin</small>
@@ -67,33 +67,39 @@
       </header>
 
       <main>
-        <div class="products">
+        <div class="customers">
           <div class="card">
             <div class="card-header">
-              <h2>Our Products</h2>
+              <h2>Our Orders</h2>
             </div>
+
             <div class="card-body">
               <div class="table-responsive">
                 <table style="width: 100%;">
                   <thead>
                   <tr>
+                    <th>注文番号</th>
+                    <th>顧客番号</th>
+                    <th>責任者番号</th>
                     <th>商品番号</th>
-                    <th>商品名</th>
-                    <th>モデル名</th>
-                    <th>価格</th>
+                    <th>数量</th>
+                    <th>期日</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr th:each="product:${products}">
-                    <td th:text="${product.productID}"></td>
-                    <td th:text="${product.productName}">名</td>
-                    <td th:text="${product.productModelName}">類別</td>
-                    <td th:text="${product.price}">住所</td>
+                  <tr th:each="sales:${sales}">
+                    <td th:text="${sales.salesID}"></td>
+                    <td th:text="${sales.customerID}">名</td>
+                    <td th:text="${sales.employeeID}">類別</td>
+                    <td th:text="${sales.productID}">住所</td>
+                    <td th:text="${sales.quantity}">電話番号</td>
+                    <td th:text="${sales.saleDate}">メールアドレス</td>
                   </tr>
                   </tbody>
                 </table>
               </div>
             </div>
+
           </div>
         </div>
       </main>
