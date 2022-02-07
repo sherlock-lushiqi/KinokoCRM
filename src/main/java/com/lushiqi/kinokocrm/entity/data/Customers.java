@@ -27,8 +27,7 @@ public class Customers {
     @Column(name = "customer_email")
     String customerEmail;
 
-    @JoinColumn(name = "customerClassID")
-    @ManyToOne
-    CustomerClasses customerClasses;
+    @Column(name = "customer_class")
+    String customerClass;
 }
 

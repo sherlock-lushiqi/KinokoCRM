@@ -15,9 +15,7 @@ public class CustomerClasses {
     @Id
     int customerClassID;
 
-    @Column(name = "customer_className")
+    @Column(name = "customer_class_name")
     String customerClassName;
 
-    @OneToMany(mappedBy = "customerClasses")
-    List<Customers> customers;
 }

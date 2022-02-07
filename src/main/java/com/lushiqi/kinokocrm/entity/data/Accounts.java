@@ -20,8 +20,4 @@ public class Accounts {
     @Column(name = "password")
     String password;
 
-    @JoinColumn(name = "employeeID")
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    Employees employees;
-
 }

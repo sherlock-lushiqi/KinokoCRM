@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" href="css/style.css">
     <title>Kinoko admin</title>
   </head>
   <body>
@@ -48,7 +48,7 @@
           <label for="nav-toggle">
             <span class="las la-bars"></span>
 
-            Customers
+            Products
           </label>
         </h2>
 
@@ -58,7 +58,7 @@
         </div>
 
         <div class="user-wrapper">
-          <img src="img/elliot.jpg" width="40px" height="30px" alt="">
+          <img src="/static/img/elliot.jpg" width="40px" height="30px" alt="">
           <div>
             <h4>Elliot Doe</h4>
             <small>Super admin</small>
@@ -67,39 +67,33 @@
       </header>
 
       <main>
-        <div class="customers">
+        <div class="products">
           <div class="card">
             <div class="card-header">
-              <h2>Our Customers</h2>
+              <h2>Our Products</h2>
             </div>
-
             <div class="card-body">
               <div class="table-responsive">
                 <table style="width: 100%;">
                   <thead>
                   <tr>
-                    <th>顧客番号</th>
-                    <th>顧客名</th>
-                    <th>類別</th>
-                    <th>住所</th>
-                    <th>電話番号</th>
-                    <th>メールアドレス</th>
+                    <th>商品番号</th>
+                    <th>商品名</th>
+                    <th>モデル名</th>
+                    <th>価格</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr th:each="customer:${customers}">
-                    <td th:text="${customer.customerID}"></td>
-                    <td th:text="${customer.customerName}">名</td>
-                    <td th:text="${customer.customerClass}">類別</td>
-                    <td th:text="${customer.customerAddress}">住所</td>
-                    <td th:text="${customer.customerPhone}">電話番号</td>
-                    <td th:text="${customer.customerEmail}">メールアドレス</td>
+                  <tr th:each="product:${products}">
+                    <td th:text="${product.productID}"></td>
+                    <td th:text="${product.productName}">名</td>
+                    <td th:text="${product.productModelName}">類別</td>
+                    <td th:text="${product.price}">住所</td>
                   </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-
           </div>
         </div>
       </main>
