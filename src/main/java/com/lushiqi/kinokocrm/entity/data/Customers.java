@@ -1,6 +1,7 @@
 package com.lushiqi.kinokocrm.entity.data;
 
 import lombok.Data;
+import org.apache.ibatis.annotations.Many;
 
 import javax.persistence.*;
 
@@ -27,7 +28,7 @@ public class Customers {
     String customerEmail;
 
     @JoinColumn(name = "customerClassID")
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     CustomerClasses customerClasses;
 }
 

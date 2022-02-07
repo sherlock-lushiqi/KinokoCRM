@@ -3,6 +3,7 @@ package com.lushiqi.kinokocrm.entity.data;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -16,4 +17,7 @@ public class CustomerClasses {
 
     @Column(name = "customer_className")
     String customerClassName;
+
+    @OneToMany(mappedBy = "customerClasses")
+    List<Customers> customers;
 }

@@ -74,137 +74,29 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/jenny.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Lewis S. Cunningham</h4>
-                                    <small>CEO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/joe.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Joe J. Chow</h4>
-                                    <small>CFO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/matt.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Matts F. Brown</h4>
-                                    <small>CTO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/jenny.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Lewis S. Cunningham</h4>
-                                    <small>CEO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/joe.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Joe J. Chow</h4>
-                                    <small>CFO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/matt.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Matts F. Brown</h4>
-                                    <small>CTO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/jenny.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Lewis S. Cunningham</h4>
-                                    <small>CEO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/joe.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Joe J. Chow</h4>
-                                    <small>CFO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
-                        </div>
-
-                        <div class="customer">
-                            <div class="info">
-                                <img src="img/matt.jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>Matts F. Brown</h4>
-                                    <small>CTO Excerpt</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                <span class="las la-user-circle"></span>
-                                <span class="las la-comment"></span>
-                                <span class="las la-phone"></span>
-                            </div>
+                        <div class="table-responsive">
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>顧客番号</th>
+                                        <th>顧客名</th>
+                                        <th>類別</th>
+                                        <th>住所</th>
+                                        <th>電話番号</th>
+                                        <th>メールアドレス</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="customers:${customers}">
+                                        <td th:text="${customerID}"></td>
+                                        <td th:text="${customer_name}">名</td>
+                                        <td th:text="${customer_className}">類別</td>
+                                        <td th:text="${customer_address}">住所</td>
+                                        <td th:text="${customer_phone}">電話番号</td>
+                                        <td th:text="${customer_email}">メールアドレス</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
