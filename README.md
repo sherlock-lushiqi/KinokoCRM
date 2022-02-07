@@ -1,5 +1,5 @@
 # 关于KinokoCRM项目：
-[日本語]()
+[日本語](https://github.com/sherlock-lushiqi/KinokoCRM/blob/master/README.JP.md)
 
 KinokoCRM是一个基于Springboot开发的简易CRM系统，提供了客户信息管理、操作员工管理、产品管理、订单管理、报表统计等功能。
 
