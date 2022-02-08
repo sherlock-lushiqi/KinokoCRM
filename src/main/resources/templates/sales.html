@@ -79,9 +79,10 @@
                   <thead>
                   <tr>
                     <th>注文番号</th>
-                    <th>顧客番号</th>
-                    <th>責任者番号</th>
-                    <th>商品番号</th>
+                    <th>顧客m名</th>
+                    <th>責任者</th>
+                    <th>商品名</th>
+                    <th>商品型番</th>
                     <th>数量</th>
                     <th>期日</th>
                   </tr>
@@ -92,6 +93,7 @@
                     <td th:text="${sales.customerID}">名</td>
                     <td th:text="${sales.employeeID}">類別</td>
                     <td th:text="${sales.productID}">住所</td>
+                    <td th:text="${products.productModelName}">電話番号</td>
                     <td th:text="${sales.quantity}">電話番号</td>
                     <td th:text="${sales.saleDate}">メールアドレス</td>
                   </tr>
