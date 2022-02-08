@@ -109,78 +109,21 @@
 
               <div class="card-body">
                 <div class="table-responsive">
-                  <table width="100%">
+                  <table style="width: 100%;">
                     <thead>
                     <tr>
-                      <td>Project Title</td>
-                      <td>Department</td>
-                      <td>Status</td>
+                      <th>商品番号</th>
+                      <th>商品名</th>
+                      <th>モデル名</th>
+                      <th>価格</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>UI/UX Design</td>
-                      <td>UI team</td>
-                      <td>
-                        <span class="status purple"></span>
-                        review
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Web development</td>
-                      <td>Frontend</td>
-                      <td>
-                        <span class="status pink"></span>
-                        in progress
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ushop app</td>
-                      <td>Mobile team</td>
-                      <td>
-                        <span class="status orange"></span>
-                        pending
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>UI/UX Design</td>
-                      <td>UI team</td>
-                      <td>
-                        <span class="status purple"></span>
-                        review
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>UI/UX Design</td>
-                      <td>UI team</td>
-                      <td>
-                        <span class="status purple"></span>
-                        review
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Web development</td>
-                      <td>Frontend</td>
-                      <td>
-                        <span class="status pink"></span>
-                        in progress
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ushop app</td>
-                      <td>Mobile team</td>
-                      <td>
-                        <span class="status orange"></span>
-                        pending
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>UI/UX Design</td>
-                      <td>UI team</td>
-                      <td>
-                        <span class="status purple"></span>
-                        review
-                      </td>
+                    <tr th:each="product:${products}">
+                      <td th:text="${product.productID}">商品番号</td>
+                      <td th:text="${product.productName}">商品名</td>
+                      <td th:text="${product.productModelName}">モデル名</td>
+                      <td th:text="${product.price}">価格</td>
                     </tr>
                     </tbody>
                   </table>
@@ -189,61 +132,25 @@
             </div>
           </div>
 
-          <div class="customers">
-            <div class="card">
-              <div class="card-header">
-                <h2>New Customers</h2>
-
-                <a href="customers.html"><button>See all <span class="las la-arrow-right"></span></button></a>
-              </div>
-
-              <div class="card-body">
-                <div class="customer">
-                  <div class="info">
-                    <img src="img/jenny.jpg" width="40px" height="40px" alt="">
-                    <div>
-                      <h4>Lewis S. Cunningham</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-
-                <div class="customer">
-                  <div class="info">
-                    <img src="img/joe.jpg" width="40px" height="40px" alt="">
-                    <div>
-                      <h4>Joe J. Chow</h4>
-                      <small>CFO Excerpt</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-
-                <div class="customer">
-                  <div class="info">
-                    <img src="img/matt.jpg" width="40px" height="40px" alt="">
-                    <div>
-                      <h4>Matts F. Brown</h4>
-                      <small>CTO Excerpt</small>
-                    </div>
-                  </div>
-                  <div class="contact">
-                    <span class="las la-user-circle"></span>
-                    <span class="las la-comment"></span>
-                    <span class="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-
+          <div class="card-body">
+            <div class="table-responsive">
+              <table style="width: 100%;">
+                <thead>
+                <tr>
+                  <th>顧客番号</th>
+                  <th>顧客名</th>
+                  <th>類別</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="customer:${customers}">
+                  <td th:text="${customer.customerID}"></td>
+                  <td th:text="${customer.customerName}">名</td>
+                  <td th:text="${customer.customerClass}">類別</td>
+                </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
