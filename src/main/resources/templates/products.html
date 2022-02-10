@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-    <link rel="stylesheet" th:href="@{css/ling-awesome.css}">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" th:href="@{css/style.css}">
     <title>Kinoko admin</title>
   </head>
@@ -71,6 +71,9 @@
           <div class="card">
             <div class="card-header">
               <h2>Our Products</h2>
+              <a>
+                <button>商品登録</button>
+              </a>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -81,6 +84,7 @@
                     <th>商品名</th>
                     <th>モデル名</th>
                     <th>価格</th>
+                    <th></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -89,6 +93,15 @@
                     <td th:text="${product.productName}">名</td>
                     <td th:text="${product.productModelName}">類別</td>
                     <td th:text="${product.price}">住所</td>
+                    <td>
+                      <a>
+                        <button>編集</button>
+                      </a>
+                      <a>
+                        <button>削除</button>
+
+                      </a>
+                    </td>
                   </tr>
                   </tbody>
                 </table>

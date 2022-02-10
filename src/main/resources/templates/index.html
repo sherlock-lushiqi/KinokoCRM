@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-    <link rel="stylesheet" th:href="@{css/ling-awesome.css}">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" th:href="@{css/style.css}">
     <title>Kinoko admin</title>
   </head>
@@ -71,7 +71,7 @@
         <div class="cards">
           <div class="card-single">
             <div>
-              <h1>54</h1>
+              <h1>9</h1>
               <span>Customers</span>
             </div>
             <div>
@@ -80,8 +80,8 @@
           </div>
           <div class="card-single">
             <div>
-              <h1>79</h1>
-              <span>Tasks</span>
+              <h1>28</h1>
+              <span>Orders</span>
             </div>
             <div>
               <span class="las la-clipboard-list"></span>
@@ -89,8 +89,8 @@
           </div>
           <div class="card-single">
             <div>
-              <h1>$600k</h1>
-              <span>Income</span>
+              <h1>¥600k</h1>
+              <span>Sales</span>
             </div>
             <div>
               <span class="lab la-google-wallet"></span>
@@ -102,7 +102,7 @@
           <div class="projects">
             <div class="card">
               <div class="card-header">
-                <h2>Recent Projects</h2>
+                <h2>Recent Orders</h2>
 
                 <a href="products.html"><button>See all <span class="las la-arrow-right"></span></button></a>
               </div>
@@ -112,18 +112,48 @@
                   <table style="width: 100%;">
                     <thead>
                     <tr>
-                      <th>商品番号</th>
+                      <th>注文番号</th>
                       <th>商品名</th>
-                      <th>モデル名</th>
-                      <th>価格</th>
+                      <th>顧客名</th>
+                      <th>状態</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="product:${products}">
-                      <td th:text="${product.productID}">商品番号</td>
-                      <td th:text="${product.productName}">商品名</td>
-                      <td th:text="${product.productModelName}">モデル名</td>
-                      <td th:text="${product.price}">価格</td>
+                    <tr>
+                      <td>PI11B215</td>
+                      <td>プリンタ3型</td>
+                      <td>大阪商会</td>
+                      <td>待機中</td>
+                    </tr>
+                    <tr>
+                      <td>PI11A315</td>
+                      <td>ディスク2型</td>
+                      <td>西中国商会</td>
+                      <td>執行中</td>
+                    </tr>
+                    <tr>
+                      <td>PI22R283</td>
+                      <td>オフィスチェアー2型</td>
+                      <td>山本太郎</td>
+                      <td>有効</td>
+                    </tr>
+                    <tr>
+                      <td>PI23G192</td>
+                      <td>プリンタ3型</td>
+                      <td>大阪商会</td>
+                      <td>執行中</td>
+                    </tr>
+                    <tr>
+                      <td>PI29I248</td>
+                      <td>プロジェクター17型</td>
+                      <td>東京商事</td>
+                      <td>執行中</td>
+                    </tr>
+                    <tr>
+                      <td>PI18B293</td>
+                      <td>オフィスチェアー1型</td>
+                      <td>東京商事</td>
+                      <td>執行中</td>
                     </tr>
                     </tbody>
                   </table>
@@ -132,26 +162,58 @@
             </div>
           </div>
 
-          <div class="card-body">
-            <div class="table-responsive">
-              <table style="width: 100%;">
-                <thead>
-                <tr>
-                  <th>顧客番号</th>
-                  <th>顧客名</th>
-                  <th>類別</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="customer:${customers}">
-                  <td th:text="${customer.customerID}"></td>
-                  <td th:text="${customer.customerName}">名</td>
-                  <td th:text="${customer.customerClass}">類別</td>
-                </tr>
-                </tbody>
-              </table>
+          <div class="Customers">
+            <div class="card">
+              <div class="card-header">
+                <h2>Recent Orders</h2>
+
+                <a href="products.html"><button>See all <span class="las la-arrow-right"></span></button></a>
+              </div>
+
+              <div class="card-body">
+                <div class="table-responsive">
+
+                <table style="width: 100%;">
+                  <thead>
+                  <tr>
+                    <th>顧客番号</th>
+                    <th>顧客名</th>
+                    <th>類別</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>大阪商会</td>
+                    <td>法人</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>西中国商会会</td>
+                    <td>法人</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>東京商事</td>
+                    <td>法人</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>山本太郎</td>
+                    <td>個人</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>藤澤庄西</td>
+                    <td>個人</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              </div>
+
             </div>
+
           </div>
         </div>
 

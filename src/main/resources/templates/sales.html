@@ -79,23 +79,95 @@
                   <thead>
                   <tr>
                     <th>注文番号</th>
-                    <th>顧客m名</th>
+                    <th>顧客名</th>
                     <th>責任者</th>
                     <th>商品名</th>
                     <th>商品型番</th>
                     <th>数量</th>
                     <th>期日</th>
+                    <th>状態</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr th:each="sales:${sales}">
-                    <td th:text="${sales.salesID}"></td>
-                    <td th:text="${sales.customerID}">名</td>
-                    <td th:text="${sales.employeeID}">類別</td>
-                    <td th:text="${sales.productID}">住所</td>
-                    <td th:text="${products.productModelName}">電話番号</td>
-                    <td th:text="${sales.quantity}">電話番号</td>
-                    <td th:text="${sales.saleDate}">メールアドレス</td>
+                  <tr>
+                    <td>PI11B215</td>
+                    <td>佐藤祥子</td>
+                    <td>大阪商会</td>
+                    <td>プリンタ3型</td>
+                    <td>GP03</td>
+                    <th>13</th>
+                    <th>2021-12-11</th>
+                    <td>待機中</td>
+                  </tr>
+                  <tr>
+                    <td>PI11A315</td>
+                    <td>佐藤祥子</td>
+                    <td>西中国商会</td>
+                    <td>ディスク2型</td>
+                    <td>DS02</td>
+                    <th>21</th>
+                    <th>2021-12-14</th>
+                    <td>執行中</td>
+                  </tr>
+                  <tr>
+                    <td>PI22R283</td>
+                    <td>佐藤祥子</td>
+                    <td>山本太郎</td>
+                    <td>オフィスチェアー2型</td>
+                    <td>CH02</td>
+                    <th>10</th>
+                    <th>2021-10-12</th>
+                    <td>有効</td>
+                  </tr>
+                  <tr>
+                    <td>PI23G192</td>
+                    <td>佐藤祥子</td>
+                    <td>大阪商会</td>
+                    <td>プリンタ3型</td>
+                    <td>GP03</td>
+                    <th>13</th>
+                    <th>2021-09-12</th>
+                    <td>執行中</td>
+                  </tr>
+                  <tr>
+                    <td>PI29I248</td>
+                    <td>高橋瑠美子</td>
+                    <td>東京商事</td>
+                    <td>プリンタ3型</td>
+                    <td>GP03</td>
+                    <th>21</th>
+                    <th>2021-11-24</th>
+                    <td>執行中</td>
+                  </tr>
+                  <tr>
+                    <td>PI11B215</td>
+                    <td>加藤翔</td>
+                    <td>大阪商会</td>
+                    <td>オフィスチェアー1型</td>
+                    <td>CH01</td>
+                    <th>12</th>
+                    <th>2021-08-12</th>
+                    <td>待機中</td>
+                  </tr>
+                  <tr>
+                    <td>PI18B293</td>
+                    <td>田中治郎</td>
+                    <td>大阪商会</td>
+                    <td>ディスク2型</td>
+                    <td>DS02</td>
+                    <th>13</th>
+                    <th>2021-12-11</th>
+                    <td>待機中</td>
+                  </tr>
+                  <tr>
+                    <td>PI11B215</td>
+                    <td>佐藤祥子</td>
+                    <td>大阪商会</td>
+                    <td>プリンタ3型</td>
+                    <td>GP03</td>
+                    <th>13</th>
+                    <th>2021-12-11</th>
+                    <td>待機中</td>
                   </tr>
                   </tbody>
                 </table>

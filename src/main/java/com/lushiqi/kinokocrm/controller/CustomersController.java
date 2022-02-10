@@ -30,7 +30,7 @@ public class CustomersController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteCustomer(@PathVariable Long id) {
+    public String deleteCustomer(@PathVariable Integer id) {
         repository.deleteById(id);
         return "redirect:/customers";
     }

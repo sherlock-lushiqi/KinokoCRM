@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-    --main-color:#92E3A9;
+    --main-color:#3BB573;
     --color-dark:#1d2231;
     --text-grey:#8390a2;
 }
@@ -417,6 +417,15 @@ tr td:last-child {
     display: inline-block;
     margin-left: .5rem;
     color: var(--main-color);
+}
+
+.table button {
+    background: var(--main-color);
+    border-radius: 10px;
+    color: #fff;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--main-color);
 }
 
 @media only screen and (max-width: 1200px) {
