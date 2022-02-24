@@ -37,8 +37,7 @@ public class CustomersController {
         return "customers-add";
     }*/
     @ResponseBody
-    @RequestMapping("/toEdit")
-    public ResultVo toEdit(Integer id) {
+    public ResultVo toCustomerEdit(Integer id) {
         Optional<Customers> byId = customersRepository.findById(id);
         return ResultVo.ok().data("customers",byId);
     }
@@ -66,10 +65,10 @@ public class CustomersController {
         return "redirect:/customers.html";
     }*/
     @ResponseBody
-    @RequestMapping("/edit")
+    @RequestMapping("/customerEdit")
     public ResultVo edit(Customers customers) {
-        if(StrUtil.isNotEmpty(customers.getCustomerPhone())){
-            if(!customers.getCustomerPhone().matches("[\\d-]{6,12}")){
+        if (StrUtil.isNotEmpty(customers.getCustomerPhone())) {
+            if (!customers.getCustomerPhone().matches("[\\d-]{6,12}")) {
                 return ResultVo.error().message("电话号码为最多12位的数字或数字加'-'");
             }
         }
@@ -92,7 +91,7 @@ public class CustomersController {
         return "redirect:/customers.html";
     }*/
    @ResponseBody
-    @RequestMapping("/delete")
+    @RequestMapping("/customerDelete")
     public ResultVo delete(Integer id) {
         customersRepository.deleteById(id);
         return ResultVo.ok();

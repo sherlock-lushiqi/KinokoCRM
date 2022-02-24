@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Index</title>
+    <title>Customers</title>
 </head>
 <body>
 
@@ -30,7 +30,7 @@
                 <a href="customers.html" class="list-group-item list-group-item-action second-text active">
                     <i class="fa-solid fa-handshake"></i>Customers
                 </a>
-                <a href="" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="products.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-cubes"></i>Products
                 </a>
                 <a href="" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
@@ -297,7 +297,7 @@ $('.reset').on('click',function(){
    var id = $('input#customerid').val()
    if(id){
       console.log(id)
-  $.get("/toEdit?id="+id,function (data,status) {
+  $.get("/toCustomerEdit?id="+id,function (data,status) {
                 if(data.code===20000){
                    // location.replace(location.href);
          var customerid =   data.data.customers.customerid
@@ -355,7 +355,7 @@ $('.customerAdd').on('click',function(){
         $.each(t,function(){
             formData[this.name]=this.value
         })
-        $.post("/edit",
+        $.post("/customerEdit",
             formData,
             function(data,status){
             if(data.code===20000){
@@ -370,7 +370,7 @@ $('.customerAdd').on('click',function(){
         var con = confirm('删除提示')
 
         if(con==true){
-            $.get("/delete?id="+customerid,function (data,status) {
+            $.get("/customerDelete?id="+customerid,function (data,status) {
                 if(data.code===20000){
                     location.replace(location.href);
                 }else {

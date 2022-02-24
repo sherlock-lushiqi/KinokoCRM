@@ -27,9 +27,9 @@ public class LoginController {
     SalesRepository salesRepository;
 
     @Autowired
-    EmployeeRepository employeeRepository;
+    EmployeesRepository employeeRepository;
     @Autowired
-    ProductRepository productRepository;
+    ProductsRepository productRepository;
     @GetMapping(value = {"/login","/login.html"})
     public String loginPage(){
         return "login";
