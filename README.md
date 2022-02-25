@@ -29,3 +29,15 @@ KinokoCRM是一个基于Springboot开发的简易CRM系统，提供了客户信�
 5.Login 为登录页面。
 
 6.Register 为新员工注册页面，在此设置系统登录账号密码以及员工信息录入，分别录入accounts表和employees表。
+
+## 求助：
+1.关联表：
+
+    1.employeeID 与 accountID，即一个职员对应一个管理员账号
+
+    2.employeeID 与 customerID，即一个职员对应一个客户
+
+    3.sales 与 customerID，productID，employeeID对应，即一个订单中顾客，商品和职员信息关联
+2.查询：
+
+    1.index中希望能在sales板块显示总销售额，即订单数 * 订单价格，而订单价格则为订单商品数 * 商品单价。
