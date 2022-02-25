@@ -17,8 +17,8 @@ public class Customers {
     @GeneratedValue(strategy= GenerationType.AUTO)//主键生成策略
     @Column(name="customerid")
     private Integer customerid;
-    @Column(name="customer_class")
-    private String customerClass;
+    @Column(name="customer_address")
+    private String customerAddress;
     @Column(name="customer_email")
     private String customerEmail;
     @Column(name="customer_name")
@@ -27,7 +27,7 @@ public class Customers {
     private String customerPhone;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="customer_address",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name="customer_class",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
     private CustomerClass customerClassEntity;
 
 }

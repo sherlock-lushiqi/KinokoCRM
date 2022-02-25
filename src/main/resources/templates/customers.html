@@ -102,7 +102,7 @@
                         <tr th:each="customer:${customers.getContent()}">
                             <td th:text="${customer.customerid}"></td>
                             <td th:text="${customer.customerName}">名</td>
-                            <td th:text="${customer.customerClass}">類別</td>
+                            <td th:text="${customer.customerEntity.customerClassName}">類別</td>
                             <td th:text="${customer.customerAddress}">住所</td>
                             <td th:text="${customer.customerPhone}">電話番号</td>
                             <td th:text="${customer.customerEmail}">メールアドレス</td>
