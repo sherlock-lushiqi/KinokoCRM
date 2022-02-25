@@ -29,12 +29,12 @@ public class Employees {
     @Column(name="employee_phone")
     private String employeePhone;
 
-//    @OneToOne(mappedBy = "accountid")
-//    @JoinColumn(name = "accountid",referencedColumnName = "accountid")
-//    private Accounts accountid;
-//
-//    @OneToOne(mappedBy = "customerid")
-//    @JoinColumn(name = "customerid",referencedColumnName = "customerid")
-//    private Customers customerid;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "accountid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private Accounts accounts;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private Customers customers;
 
 }

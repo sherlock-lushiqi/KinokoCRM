@@ -1,7 +1,5 @@
 package com.lushiqi.kinokocrm.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -10,19 +8,15 @@ import javax.persistence.*;
 
 
 @Data
-@Builder
 @Accessors(chain = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
 @Table(name="customers")
 public class Customers {
     @Id    //主键id
     @GeneratedValue(strategy= GenerationType.AUTO)//主键生成策略
     @Column(name="customerid")
     private Integer customerid;
-    @Column(name="customer_address")
-    private String customerAddress;
     @Column(name="customer_class")
     private String customerClass;
     @Column(name="customer_email")
@@ -32,8 +26,8 @@ public class Customers {
     @Column(name="customer_phone")
     private String customerPhone;
 
-//    @OneToOne(mappedBy = "employeeName")
-//    @JoinColumn(name="customer_person", referencedColumnName = "employee_name")
-//    private Employees customerPerson;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="customer_address",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private CustomerClass customerClassEntity;
 
 }
