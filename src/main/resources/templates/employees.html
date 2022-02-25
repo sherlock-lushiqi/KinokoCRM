@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Products</title>
+    <title>employees</title>
   </head>
   <body>
 
@@ -30,13 +30,13 @@
           <a href="customers.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fa-solid fa-handshake"></i>Customers
           </a>
-          <a href="products.html" class="list-group-item list-group-item-action second-text active">
+          <a href="products.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fa-solid fa-cubes"></i>Products
           </a>
           <a href="" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
             <i class="fa-solid fa-rectangle-list"></i>Orders
           </a>
-          <a href="employees.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+          <a href="employees.html" class="list-group-item list-group-item-action second-text active">
             <i class="fa-solid fa-user-group"></i>Employees
           </a>
           <a th:href="@{/loginOut}"  class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
@@ -51,7 +51,7 @@
         <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
           <div class="d-flex align-items-center">
             <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-            <h2 class="fs-2 m-0">顧客情報</h2>
+            <h2 class="fs-2 m-0">社員情報</h2>
           </div>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -70,12 +70,12 @@
           </div>
         </nav>
         <!-- main content -->
-        <div class="product align-items-center">
+        <div class="employee align-items-center">
           <div class="header">
-            <h2>Our Products</h2>
-            <a  class="btn btn-success productAdd" data-bs-toggle="modal" data-bs-target="#myModal">
+            <h2>Our Emoloyees</h2>
+            <a  class="btn btn-success employeeAdd" data-bs-toggle="modal" data-bs-target="#myModal">
               <i class="bi bi-person-fill me-2"></i>
-              新商品作成
+              社員登録
             </a>
           </div>
         </div>
@@ -85,25 +85,30 @@
           <table class="table table-hover">
             <thead>
             <tr>
-              <th scope="col">商品番号</th>
-              <th scope="col">商品名</th>
-              <th scope="col">商品型番</th>
-              <th scope="col">商品価格</th>
+              <th scope="col">社員番号</th>
+              <th scope="col">社員名</th>
+              <th scope="col">所属部門</th>
+              <th scope="col">電話番号</th>
+              <th scope="col">メールアドレス</th>
+              <th scope="col">アカウントID</th>
+<!--              <th scope="col">対応顧客</th>-->
             </tr>
             </thead>
             <tbody>
-            <tr th:each="product:${products.getContent()}">
-              <td th:text="${product.productid}">商品番号</td>
-              <td th:text="${product.productName}">商品名</td>
-              <td th:text="${product.productModelName}">商品型番</td>
-              <td th:text="${product.productPrice}">商品価格</td>
+            <tr th:each="employee:${employees.getContent()}">
+              <td th:text="${employee.employeeid}">社員番号</td>
+              <td th:text="${employee.employeeName}">社員名</td>
+              <td th:text="${employee.employeeDepartment}">所属部門</td>
+              <td th:text="${employee.employeePhone}">電話番号</td>
+              <td th:text="${employee.employeeEmail}">メールアドレス</td>
+<!--              <td th:text="${employee.accountid}">アカウントID</td>-->
               <td>
 
-                <button type="button" class="btn btn-success btn-sm editProducts" data-bs-toggle="modal" data-bs-target="#myModal">
+                <button type="button" class="btn btn-success btn-sm editemployees" data-bs-toggle="modal" data-bs-target="#myModal">
                   编辑
                 </button>
 
-                <button type="button" class="btn btn-danger btn-sm" th:onclick="'javascript:deleteProducts('+${product.productid}+');'" >删除</button>
+                <button type="button" class="btn btn-danger btn-sm" th:onclick="'javascript:deleteemployees('+${employee.employeeid}+');'" >删除</button>
 
               </td>
             </tr>
@@ -116,28 +121,28 @@
             <ul class="pagination">
 
               <li class="page-item">
-                <a class="page-link" th:href="'/products.html?pageNum=0'">
+                <a class="page-link" th:href="'/employees.html?pageNum=0'">
                   <span aria-hidden="true">首页</span>
                 </a>
               </li>
-              <li class="page-item" th:if="${products.hasPrevious()}">
-                <a class="page-link" th:href="'/products.html?pageNum=' + ${products.previousPageable().getPageNumber()}" aria-label="Previous">
+              <li class="page-item" th:if="${employees.hasPrevious()}">
+                <a class="page-link" th:href="'/employees.html?pageNum=' + ${employees.previousPageable().getPageNumber()}" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
               <!-- 中间页 -->
-              <li class="page-item" th:each="pageNum:${#numbers.sequence(0, products.getTotalPages() - 1)}">
-                <a class="page-link" th:href="'/products.html?pageNum=' + ${pageNum}" th:text="${pageNum + 1}" th:if="${pageNum ne products.pageable.getPageNumber()}"></a>
-                <a class="page-link" th:href="'/products.html?pageNum=' + ${pageNum}" th:text="${pageNum + 1}" th:if="${pageNum eq products.pageable.getPageNumber()}" th:style="'font-weight:bold;background: #6faed9;'"></a>
+              <li class="page-item" th:each="pageNum:${#numbers.sequence(0, employees.getTotalPages() - 1)}">
+                <a class="page-link" th:href="'/employees.html?pageNum=' + ${pageNum}" th:text="${pageNum + 1}" th:if="${pageNum ne employees.pageable.getPageNumber()}"></a>
+                <a class="page-link" th:href="'/employees.html?pageNum=' + ${pageNum}" th:text="${pageNum + 1}" th:if="${pageNum eq employees.pageable.getPageNumber()}" th:style="'font-weight:bold;background: #6faed9;'"></a>
               </li>
-              <li  class="page-item" th:if="${products.hasNext()}">
-                <a class="page-link" th:href="'/products.html?pageNum=' + ${products.nextPageable().getPageNumber()}" aria-label="Next">
+              <li  class="page-item" th:if="${employees.hasNext()}">
+                <a class="page-link" th:href="'/employees.html?pageNum=' + ${employees.nextPageable().getPageNumber()}" aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>
                 </a>
               </li>
               <!-- 尾页 -->
               <li class="page-item">
-                <a class="page-link" th:href="'/products.html?pageNum=' + ${products.getTotalPages() - 1}">
+                <a class="page-link" th:href="'/employees.html?pageNum=' + ${employees.getTotalPages() - 1}">
                   <span aria-hidden="true">尾页</span>
                 </a>
               </li>
@@ -161,7 +166,7 @@
 
           <!-- 模态框头部 -->
           <div class="modal-header">
-            <h4 class="modal-title">商品作成または編輯</h4>
+            <h4 class="modal-title">社員作成または編輯</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
@@ -169,30 +174,42 @@
           <div class="modal-body">
             <form  id="form-machineRole"   method="post" role="form">
               <div class="form-group" hidden>
-                <label for="productid" class="col-md-2 control-label">商品番号 </label>
+                <label for="employeeid" class="col-md-2 control-label">社員番号 </label>
                 <div class="col-md-8">
-                  <input type="text" id="productid" name="productid"    class="form-control" placeholder="商品番号を入力してください。">
+                  <input type="text" id="employeeid" name="employeeid"    class="form-control" placeholder="社員番号を入力してください。">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="productName" class="col-md-2 control-label">商品名 </label>
+                <label for="employeeName" class="col-md-2 control-label">社員名 </label>
                 <div class="col-md-8">
-                  <input type="text" id="productName" name="productName"  class="form-control" placeholder="商品名を入力してください。">
+                  <input type="text" id="employeeName" name="employeeName"  class="form-control" placeholder="社員名を入力してください。">
                 </div>
               </div>
               <div class="form-group">
-                <label for="productClass" class="col-md-2 control-label">商品型番 </label>
+                <label for="employeeDepartment" class="col-md-2 control-label">所属部門 </label>
                 <div class="col-md-8">
-                  <input type="text" id="productClass" name="productClass"  class="form-control" placeholder="商品型番を入力してください。">
+                  <input type="text" id="employeeDepartment" name="employeeDepartment"  class="form-control" placeholder="部門名を入力してください。">
                 </div>
               </div>
               <div class="form-group">
-                <label for="productAddress" class="col-md-2 control-label">商品価格 </label>
+                <label for="employeePhone" class="col-md-2 control-label">電話番号 </label>
                 <div class="col-md-8">
-                  <input type="text" id="productAddress" name="productAddress"  class="form-control" placeholder="商品価格を入力してください。">
+                  <input type="text" id="employeePhone" name="employeePhone"  class="form-control" placeholder="電話番号を入力してください。">
                 </div>
               </div>
+              <div class="form-group">
+                <label for="employeeEmail" class="col-md-2 control-label">メールアドレス </label>
+                <div class="col-md-8">
+                  <input type="text" id="employeeEmail" name="employeeEmail"  class="form-control" placeholder="メールアドレスを入力してください。">
+                </div>
+              </div>
+<!--              <div class="form-group">-->
+<!--                <label for="accountid" class="col-md-2 control-label">管理員アカウントID </label>-->
+<!--                <div class="col-md-8">-->
+<!--                  <input type="text" id="accountid" name="accountid"  class="form-control" placeholder="社員価格を入力してください。">-->
+<!--                </div>-->
+<!--              </div>-->
               <button type="button" class="btn btn-primary reset">リセット</button>
               <button type="button"  class="btn btn-success" onclick="saveOrUpdate()">アップロード</button>
             </form>
@@ -200,7 +217,7 @@
 
           <!-- 模态框底部 -->
           <div class="modal-footer">
-            <label class="productmsg"  style="color:red"></label>
+            <label class="employeemsg"  style="color:red"></label>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">キャンセル</button>
           </div>
 
@@ -228,19 +245,21 @@
         $(function () {
 
           $('.reset').on('click',function(){
-            var id = $('input#productid').val()
+            var id = $('input#employeeid').val()
             if(id){
               console.log(id)
-              $.get("/toProductEdit?id="+id,function (data,status) {
+              $.get("/toemployeeEdit?id="+id,function (data,status) {
                 if(data.code===20000){
-                  var productid = data.data.products.productid
-                  var productName = data.data.products.productName
-                  var productModelName = data.data.products.productModelName
-                  var productPrice = data.data.products.productPrice
-                  $('#form-machineRole input#productid').val(productid)
-                  $('#form-machineRole input#productName').val(productName)
-                  $('#form-machineRole input#productModelName').val(productModelName)
-                  $('#form-machineRole input#productPrice').val(productPrice)
+                  var employeeid = data.data.employees.employeeid
+                  var employeeName = data.data.employees.employeeName
+                  var employeeDepartment = data.data.employees.employeeDepartment
+                  var employeePhone = data.data.employees.employeePhone
+                  var employeeEmail = data.data.employees.employeeEmail
+                  $('#form-machineRole input#employeeid').val(employeeid)
+                  $('#form-machineRole input#employeeName').val(employeeName)
+                  $('#form-machineRole input#employeeDepartment').val(employeeDepartment)
+                  $('#form-machineRole input#employeePhone').val(employeePhone)
+                  $('#form-machineRole input#employeeEmail').val(employeeEmail)
                 }else {
                   alert(data.message)
                 }
@@ -251,20 +270,22 @@
 
           })
 
-          $('.productAdd').on('click',function(){
+          $('.employeeAdd').on('click',function(){
             document.getElementById("form-machineRole").reset();
           })
 
-          $('.editProducts').on('click',function(){
+          $('.editemployees').on('click',function(){
             document.getElementById("form-machineRole").reset();
-            var productid =     $(this).parent().parent().children().eq(0).text();
-            var productName =    $(this).parent().parent().children().eq(1).text();
-            var productModelName =    $(this).parent().parent().children().eq(2).text();
-            var productPrice =  $(this).parent().parent().children().eq(3).text();
-            $('#form-machineRole input#productid').val(productid)
-            $('#form-machineRole input#productName').val(productName)
-            $('#form-machineRole input#productModelName').val(productModelName)
-            $('#form-machineRole input#productPrice').val(productPrice)
+            var employeeid =     $(this).parent().parent().children().eq(0).text();
+            var employeeName =    $(this).parent().parent().children().eq(1).text();
+            var employeeDepartment =    $(this).parent().parent().children().eq(4).text();
+            var employeePhone =    $(this).parent().parent().children().eq(5).text();
+            var employeeEmail =    $(this).parent().parent().children().eq(6).text();
+            $('#form-machineRole input#employeeid').val(employeeid)
+            $('#form-machineRole input#employeeName').val(employeeName)
+            $('#form-machineRole input#employeeDepartment').val(employeeDepartment)
+            $('#form-machineRole input#employeePhone').val(employeePhone)
+            $('#form-machineRole input#employeeEmail').val(employeeEmail)
 
 
           })
@@ -274,28 +295,28 @@
 
         })
         function saveOrUpdate(){
-          $('label[class=productsmsg]').text('')
+          $('label[class=employeesmsg]').text('')
           var t = $('form#form-machineRole').serializeArray();
           var formData={};
           $.each(t,function(){
             formData[this.name]=this.value
           })
-          $.post("/productEdit",
+          $.post("/employeeEdit",
               formData,
               function(data,status){
                 if(data.code===20000){
                   location.replace(location.href);
                 }else {
-                  $('label[class=productsmsg]').text(data.message)
+                  $('label[class=employeesmsg]').text(data.message)
                 }
 
               });
         }
-        function deleteProducts(productid) {
+        function deleteemployees(employeeid) {
           var con = confirm('删除提示')
 
           if(con==true){
-            $.get("/productDelete?id="+productid,function (data,status) {
+            $.get("/employeeDelete?id="+employeeid,function (data,status) {
               if(data.code===20000){
                 location.replace(location.href);
               }else {

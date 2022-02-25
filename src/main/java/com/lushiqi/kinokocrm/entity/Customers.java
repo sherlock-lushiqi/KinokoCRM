@@ -30,4 +30,9 @@ public class Customers {
     private String customerName;
     @Column(name="customer_phone")
     private String customerPhone;
+
+//    @OneToOne(mappedBy = "employeeName")
+//    @JoinColumn(name="customer_person", referencedColumnName = "employee_name")
+//    private Employees customerPerson;
+
 }

@@ -29,4 +29,12 @@ public class Employees {
     @Column(name="employee_phone")
     private String employeePhone;
 
+//    @OneToOne(mappedBy = "accountid")
+//    @JoinColumn(name = "accountid",referencedColumnName = "accountid")
+//    private Accounts accountid;
+//
+//    @OneToOne(mappedBy = "customerid")
+//    @JoinColumn(name = "customerid",referencedColumnName = "customerid")
+//    private Customers customerid;
+
 }

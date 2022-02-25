@@ -22,7 +22,7 @@ public class ProductsController {
     @Autowired
     ProductsRepository productRepository;
 
-    @GetMapping("/products.html")
+    @GetMapping(value = "/products.html")
     public String products(Model model, @RequestParam(value = "pageNum", defaultValue = "0") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
         PageRequest pageParam = PageRequest.of(pageNum, pageSize);
         Page<Products> page = productRepository.findAll(pageParam);

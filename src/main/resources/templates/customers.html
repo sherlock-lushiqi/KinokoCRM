@@ -36,8 +36,8 @@
                 <a href="" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fa-solid fa-rectangle-list"></i>Orders
                 </a>
-                <a href="" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-                    <i class="fa-solid fa-user-group"></i>Accounts
+                <a href="employees.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fa-solid fa-user-group"></i>Employees
                 </a>
                 <a th:href="@{/loginOut}"  class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
                     <i class="fa-solid fa-right-from-bracket"></i>Logout
@@ -94,6 +94,7 @@
                             <th scope="col">住所</th>
                             <th scope="col">電話番号</th>
                             <th scope="col">メールアドレス</th>
+<!--                            <th scope="col">責任者</th>-->
                             <th scope="col">操作</th>
                         </tr>
                     </thead>
@@ -105,6 +106,7 @@
                             <td th:text="${customer.customerAddress}">住所</td>
                             <td th:text="${customer.customerPhone}">電話番号</td>
                             <td th:text="${customer.customerEmail}">メールアドレス</td>
+<!--                            <td th:text="${customer.customerPerson}">責任者</td>-->
                             <td>
                                 <!--th:href="@{/toEdit(id=${customer.customerid})}"-->
                            <!--     <a class="btn btn-success btn-sm editCustomers"

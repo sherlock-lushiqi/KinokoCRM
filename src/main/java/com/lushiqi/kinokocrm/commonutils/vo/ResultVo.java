@@ -11,25 +11,23 @@ import java.util.Map;
 
 /**
  * @className: ResultVo
- * @description: 统一返回结果的类
- * @author: liusCoding
- * @create: 2020-05-02 09:37
+ * @description: 統一して結果を返す
  */
 
-@ApiModel("统一返回结果")
+@ApiModel("統一して結果を返す")
 @Data
 public class ResultVo {
 
-    @ApiModelProperty("是否成功")
+    @ApiModelProperty("成功したか")
     private Boolean success;
 
-    @ApiModelProperty("返回码")
+    @ApiModelProperty("コードを返す")
     private Integer code;
 
-    @ApiModelProperty("返回信息")
+    @ApiModelProperty("メッセージを返す")
     private String message;
 
-    @ApiModelProperty("返回数据")
+    @ApiModelProperty("データを返す")
     private Map<String,Object> data = new HashMap<>();
 
     /**
