@@ -2,12 +2,19 @@ package com.lushiqi.kinokocrm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class KinokoCrmApplication {
+public class KinokoCrmApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(KinokoCrmApplication.class, args);
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(KinokoCrmApplication.class);
     }
 
 }

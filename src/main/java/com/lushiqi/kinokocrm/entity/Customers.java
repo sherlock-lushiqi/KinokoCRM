@@ -26,8 +26,17 @@ public class Customers {
     @Column(name="customer_phone")
     private String customerPhone;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="customer_class",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-    private CustomerClass customerClassEntity;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="customer_class_id",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+//    private CustomerClass customerClassEntity;
+
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employeeid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+//    private Employees employeeEntity;
+    @Column(name="employee_name")
+    private String employeeName;
+
+    @Column(name="customer_class_name")
+    private String customerClassName;
 
 }

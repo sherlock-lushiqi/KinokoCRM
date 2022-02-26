@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface SalesRepository extends JpaRepository<Sales,Integer> {
 
-    @Query(value = "select DISTINCT customerid sale_date from sales ORDER BY sale_date LIMIT 10 ", nativeQuery = true)
-    List<Integer> selectRecentCustomids();
+    @Query(value = "SELECT DISTINCT customerid FROM customers ORDER BY customerid DESC LIMIT 5", nativeQuery = true)
+    List<Integer> selectRecentCustomers();
 
 }

@@ -41,24 +41,24 @@ public class LoginController {
     @GetMapping(value = {"/index.html"})
     public String Index(Model model){
         //找到最近交易的10个顾客
-        List<Integer> integers = salesRepository.selectRecentCustomids();
-        List<Customers> all = customersRepository.findAllById(integers);
-        model.addAttribute("customers",all);
+        List<Integer> integers = salesRepository.selectRecentCustomers();
+        List<Customers> name = customersRepository.findAllById(integers);
+        model.addAttribute("customers",name);
 
         //找到最近的10条订单
-        Pageable pageable = PageRequest.of(0, 10, Sort.by("saleDate").descending());
-        Page<Sales> salesPage = salesRepository.findAll(pageable);
-        List<SalesVO> salesVOList = salesPage.get().map(e -> {
-            SalesVO salesVO = BeanUtil.toBean(e, SalesVO.class);
-            Customers customers = customersRepository.getOne(salesVO.getCustomerid());
-            salesVO.setCustomeridName(customers.getCustomerName());
-            Employees employees = employeeRepository.getOne(salesVO.getEmployeeid());
-            salesVO.setEmployeeidName(employees.getEmployeeName());
-            Products products = productRepository.getOne(salesVO.getProductid());
-            salesVO.setProductidName(products.getProductName());
-            return salesVO;
-        }).collect(Collectors.toList());
-        model.addAttribute("salesVO",salesVOList);
+//        Pageable pageable = PageRequest.of(0, 10, Sort.by("saleDate").descending());
+//        Page<Sales> salesPage = salesRepository.findAll(pageable);
+//        List<SalesVO> salesVOList = salesPage.get().map(e -> {
+//            SalesVO salesVO = BeanUtil.toBean(e, SalesVO.class);
+//            Customers customers = customersRepository.getOne(salesVO.getCustomerName());
+//            salesVO.setCustomerName(customers.getCustomerName());
+//            Employees employees = employeeRepository.getOne(salesVO.getEmployeeName());
+//            salesVO.setEmployeeName(employees.getEmployeeName());
+//            Products products = productRepository.getOne(salesVO.getProductName());
+//            salesVO.setProductName(products);
+//            return salesVO;
+//        }).collect(Collectors.toList());
+//        model.addAttribute("salesVO",salesVOList);
 
         //统计Customers Products Orders
         long count = customersRepository.count();

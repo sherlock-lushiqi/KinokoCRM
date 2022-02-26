@@ -4,10 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kinoko</groupId>
-    <artifactId>kinoko-backend</artifactId>
+    <groupId>com.lushiqi</groupId>
+    <artifactId>kinokocrm</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!-- 统一管理jar包版本 -->
+    <name>IT21-240</name>
+    <packaging>war</packaging>
+    <!-- jarを管理する -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.verson>1.8</java.verson>
@@ -53,7 +55,7 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
-        <!-- 阿里JSON解析器 -->
+        <!-- Ali JSON -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -65,7 +67,7 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool-all.version}</version>
         </dependency>
-        <!--springfox swagger官方Starter-->
+        <!--springfox swagger Starter-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
@@ -76,7 +78,7 @@
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>1.9.6</version>
         </dependency>
-        <!--热部署-->
+        <!--ホットデプロイ-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -91,7 +93,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!--外部tomcatサーバ-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
     </dependencies>
+
     <repositories>
         <repository>
             <id>spring-releases</id>

@@ -18,12 +18,9 @@ import java.util.Date;
 @NoArgsConstructor
 public class SalesVO {
     private Integer saleid;
-    private Integer customerid;
-    private String customeridName;
-    private Integer employeeid;
-    private String employeeidName;
-    private Integer productid;
-    private String productidName;
+    private String customerName;
+    private String employeeName;
+    private String productName;
     private Integer quantity;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")

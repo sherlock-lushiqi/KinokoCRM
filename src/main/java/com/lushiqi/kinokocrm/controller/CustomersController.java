@@ -97,8 +97,8 @@ public class CustomersController {
         return ResultVo.ok();
     }
 
-    @RequestMapping("/toAdd")
-    public String add() {
-        return "customers-add";
-    }
+//    @RequestMapping("/toAdd")
+//    public String add() {
+//        return "customers-add";
+//    }
 }

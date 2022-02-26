@@ -29,15 +29,27 @@ public class Sales {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Column(name="sale_date")
     private Date saleDate;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customerid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-    private Customers customers;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "customerid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+//    private Customers customers;
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employeeid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+//    private Employees employees;
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "productid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+//    private Products products;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-    private Employees employees;
+    @Column(name = "customer_name")
+    private String customerName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "productid",foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-    private Products products;
+    @Column(name = "employee_name")
+    private String employeeName;
+
+    @Column(name = "product_name")
+    private String productName;
+
+    @Column(name = "progress")
+    private String progress;
 }
